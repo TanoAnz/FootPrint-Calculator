@@ -1,0 +1,36 @@
+.container{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.card{
+    width: 450px;
+    background-color: #464141;
+    box-shadow: 3px 8px 15px rgba(0, 0, 0, 0.3), 0 4px 6px rgba(0, 0, 0, 0.05);
+    border-radius: 15px;
+  }
+.title{
+    display: flex;
+    justify-content: center;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: rgb(44, 43, 43);
+    font-size: 27px;
+    margin: 10px;
+    box-shadow:3px 8px 15px rgba(0, 0, 0, 0.3), 0 4px 6px rgba(0, 0, 0, 0.05); 
+    border-radius: 10px;
+    background-color:#b8a7a7;
+}
+.label{
+    display: flex;
+    flex-direction: column;
+}
+.text{
+    display: flex;
+    justify-content: center;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 300;
+    color: white;
+    font-size: 17px;
+}

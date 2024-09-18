@@ -1,32 +1,45 @@
 <div class="container">
     <form (ngSubmit)="onSubmit()" class="form">
-        <p class="title"> AIR TRAVEL FOOTPRINT CALCULATOR </p>
-            <div class="flex">
+        <p class="title"> AIR TRAVEL FOOTPRINT CALCULATOR</p>
+        <div class="flex">
+        <div class="airport-select">
             <label>
-                <select [(ngModel)]="form.selectedValue" class="input" name="airport">
-                    <option   *ngFor="let airport of airports " [value]="airport.code">{{airport.name}}, {{airport.city}}, {{airport.code}} </option>
-                </select>
-                <span>Aeroporto di partenza</span>
+                <ng-select 
+                    class="my-custom-ng-select"
+                    [(ngModel)]="selectedValue" 
+                    name="airport" 
+                    [items]="airports" 
+                    bindLabel="name" 
+                    bindValue="code" 
+                    placeholder="Cerca Aeroporto di partenza"
+                    [searchable]="true">
+                </ng-select>
+             </label>
+             <label>
+                <ng-select 
+                    class="my-custom-ng-select"
+                    [(ngModel)]="selectedValue2" 
+                    name="airport2" 
+                    [items]="airports" 
+                    bindLabel="name" 
+                    bindValue="code" 
+                    placeholder="Cerca Aeroporto di arrivo"
+                    [searchable]="true">
+                </ng-select>
             </label>
-            <label>
-                <select [(ngModel)]="form.selectedValue2" class="input" name="airport2">
-                    <option   *ngFor="let airport of airports " [value]="airport.code">{{airport.name}}, {{airport.city}}, {{airport.code}} </option>
-                </select>
-                <span>Aeroporto di arrivo</span>
-            </label>
-        </div>  
+        </div>
+         
                 
         <label>
-            <input class="input" type="email" placeholder="" required="" [(ngModel)]="form.passeggeri" name="passeggeri">
-            <span>Numero di Passeggeri</span>
+        <input class="input" type="email" placeholder="Numero di passeggeri" required="" [(ngModel)]="passeggeri" name="passeggeri">
         </label> 
         <div *ngIf="submit">
-
         </div>
-        <button class="submit" type="submit">Calcola</button>
+        
+        <div class="button-container"><button class="submit" type="submit">Calculate</button></div>
+    </div>
     </form>
 </div>
-<div *ngIf="submit" >
-    <p>{{footprintresponse.footprint}} Emissioni di Co2 per 1 passeggero {{footprint}} Emissioni di Co2 per {{form.passeggeri}} passeggeri</p>
-    <p>{{footprint}} Emissioni di Co2 per {{form.passeggeri}} passeggeri</p>
+<div *ngFor="let calcolo of calcoli; let i=index;">
+    <app-calcolo [calcolo]="calcoli[i]"></app-calcolo>
 </div>

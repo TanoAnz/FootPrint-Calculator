@@ -1,17 +1,21 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { fromEvent, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  apiKey= 'ad18d32fe53134ebbc2ef63d';
-  constructor(private http: HttpClient) { }
-  getDati(url: string): Observable<any>{
+  apiKey = 'ad18d32fe53134ebbc2ef63d';
+  baseUrl = 'https://api.goclimate.com/v1/flight_footprint';
+
+  constructor(private http: HttpClient) {}
+
+  getDati(url: string): Observable<any> {
     return this.http.get(url);
   }
-  calculateFlightFootprint(from:string, to:string): Observable<any> {
+
+  calculateFlightFootprint(from: string, to: string): Observable<any> {
     const headers = new HttpHeaders({
       'Authorization': `Basic ${btoa(this.apiKey + ':')}`
     });
@@ -24,7 +28,7 @@ export class DataService {
       .set('currencies[]', 'EUR')
       .set('currencies[]', 'USD');
 
-    return this.http.get('https://api.goclimate.com/v1/flight_footprint', { headers, params });
+    return this.http.get(this.baseUrl, { headers, params });
   }
 }
 
