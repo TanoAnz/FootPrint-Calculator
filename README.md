@@ -1,6 +1,8 @@
 
 #Air Travel Footprint Calculator
-This Angular application allows users to calculate the carbon footprint of a round-trip flight between two airports. The user selects departure and destination airports, enters the number of passengers, and the app calculates the CO2 emissions per passenger and the total emissions for the trip.
+
+##This Angular application allows users to calculate the carbon footprint of a round-trip flight between two airports. The user selects departure and destination airports, enters the number of passengers, and the app calculates the CO2 emissions per passenger and the total emissions for the trip.
+
 
 #Table of Contents
 Features
